@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TaskApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Tasks Home Page</title>
+
+    <meta name="viewpoint" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- jQuery UI-->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+    <!--text angular css-->
+    <!--<link rel="stylesheet" herf="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/textAngular/1.5.16/textAngular.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+    <!-- Angular core lib from a CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+
+    <!--angular routing module-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js"></script>
+
+    <!--text angular js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/textAngular/1.5.16/textAngular-rangy.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/textAngular/1.5.16/textAngular-sanitize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/textAngular/1.5.16/textAngular.min.js"></script>
+
+
+    <!-- local app -->
+    <script src="app.js"></script>
+
+    <script src="config.js"></script>
+
+    <!--Controllers-->
+    <script src="views/task/controllers/task.controller.client.js"></script>
+
+    <!--Services-->
+    <script src="services/task.service.client.js"></script>
+</head>
+
+<body>
+<div ng-view></div>
+</body>
+</html>

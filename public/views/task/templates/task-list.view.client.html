@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-text pull-left">
+            <a href="#/task">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+        </div>
+        <div class="navbar-text pull-right">
+            <a href="#/task/new">
+                <span class="glyphicon glyphicon-plus"></span>
+            </a>
+        </div>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#/task">Tasks</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <ul class="list-group">
+        <li ng-repeat="task in model.tasks" class="list-group-item">
+            <div class="row">
+                <div class="col-xs-3 col-sm-6">
+                    <a href="#/task/{{task._id}}">
+                        {{task.name}}
+                    </a>
+                </div>
+
+                <div class="col-sm-3 hidden-xs">
+                    {{task.description}}
+                </div>
+
+                <div class="col-sm-3 hidden-xs">
+                    {{task.dueDate}}
+                </div>
+
+                <div class="col-sm-3 hidden-xs">
+                    {{task.completed}}
+                </div>
+
+                <div class="col-xs-1">
+                    <a href="#/task/{{task._id}}">
+                        <span class="glyphicon glyphicon-cog pull-right"></span>
+                    </a>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+</div>
+
+<nav class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="row navbar-right navbar-text">
+            <div class="col-xs-12 text-right">
+                <a href="#/"><span class="glyphicon glyphicon-th-list"></span></a>
+            </div>
+        </div>
+    </div>
+</nav>
