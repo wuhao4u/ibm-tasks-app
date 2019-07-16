@@ -1,7 +1,7 @@
 {
-  "name": "wu-hao-web-dev",
+  "name": "wu-hao-ibm-task",
   "version": "1.0.0",
-  "description": "Web Dev at Northeastern University",
+  "description": "IBM Task App By Hao Wu",
   "main": "server.js",
   "dependencies": {
     "body-parser": "^1.15.1",

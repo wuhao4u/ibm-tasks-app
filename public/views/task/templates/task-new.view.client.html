@@ -72,6 +72,17 @@
                   placeholder="Description">
 
         </textarea>
+
+        <label for="dueDate">Due Date</label>
+        <input type="datetime-local"
+               ng-model="task.dueDate"
+               class="form-control"
+               id="dueDate">
+
+        <label for="completed">Completed</label>
+        <input type="checkbox"
+               ng-model="task.completed"
+               id="completed">
     </div>
 </div>
 
@@ -79,7 +90,7 @@
     <div class="container-fluid">
         <div class="row navbar-right navbar-text">
             <div class="col-xs-12 text-right">
-                <a href="#/"><span class="glyphicon glyphicon-user"></span></a>
+                <a href="#/"><span class="glyphicon glyphicon-th-list"></span></a>
             </div>
         </div>
     </div>

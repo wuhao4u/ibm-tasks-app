@@ -10,7 +10,6 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
 require("./task/app.js")(app);
-require("./test/app.js")(app);
 
 var port = process.env.PORT || 3000;
 

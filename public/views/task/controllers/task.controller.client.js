@@ -6,7 +6,7 @@
         .module("TaskApp")
         .controller("TaskListController", TaskListController)
         .controller("NewTaskController", NewTaskController)
-        .controller("EditTaskController", EditTaskController);
+        .controller("TaskEditController", TaskEditController);
 
 
     function TaskListController($routeParams, TaskService) {
@@ -41,6 +41,9 @@
         init();
 
         function createTask(task) {
+            if (task.completed === undefined) {
+                task.completed = false;
+            }
             var promise = TaskService.createTask(task);
             promise.success(function (newTask) {
                 $location.url("/task");
@@ -52,11 +55,12 @@
         }
     }
 
-    function EditTaskController($routeParams, $location, TaskService) {
+    function TaskEditController($routeParams, $location, TaskService) {
         var vm = this;
         // /task/:tid
 
         vm.taskId = $routeParams["tid"];
+        console.log("Edit Task Controller, tid: ", vm.taskId)
 
         // event handler
         vm.deleteTask = deleteTask;
@@ -64,12 +68,12 @@
 
         function init() {
             var tasksPromise = TaskService.findAllTasks();
-            sitesPromise.success(function (tasks) {
+            tasksPromise.success(function (tasks) {
                 vm.tasks = tasks;
             });
 
             var taskPromise = TaskService.findTaskById(vm.taskId);
-            sitePromise.success(function (task) {
+            taskPromise.success(function (task) {
                 vm.task = task;
             });
         }

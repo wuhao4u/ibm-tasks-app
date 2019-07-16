@@ -23,6 +23,7 @@ module.exports = function (app, model) {
 
     function findTaskById(req, res) {
         var taskId = req.params.taskId;
+        console.log("findTaskById, taskId: ", + taskId);
 
         model.TaskModel
             .findTaskById(taskId)

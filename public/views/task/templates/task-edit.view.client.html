@@ -4,33 +4,33 @@
     <div class="row container-fluid">
         <div class="col-sm-4 hidden-xs">
             <div class="navbar-text pull-left">
-                <a href="#/user/{{model.userId}}/website">
+                <a href="#/">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </div>
             <div class="navbar-text pull-right">
-                <a href="#/user/{{model.userId}}/website/new">
+                <a href="#/task/new">
                     <span class="glyphicon glyphicon-plus"></span>
                 </a>
             </div>
             <div class="navbar-header">
-                <a class="navbar-brand" href="#/user/{{model.userId}}/website">Websites</a>
+                <a class="navbar-brand" href="#/">Tasks</a>
             </div>
         </div>
 
         <div class="col-sm-8">
             <div class="navbar-text pull-left hidden-sm">
-                <a href="#/user/{{model.userId}}/website">
+                <a href="#/">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </div>
             <div class="navbar-text pull-right">
-                <a ng-click="model.updateWebsite()">
+                <a ng-click="model.updateTask()">
                     <span class="glyphicon glyphicon-ok"></span>
                 </a>
             </div>
             <div class="navbar-header">
-                <a class="navbar-brand" href="#/user/{{model.userId}}/website/{{model.websiteId}}">Edit Website</a>
+                <a class="navbar-brand" href="#/{{model.taskId}}">Edit Task</a>
             </div>
         </div>
     </div>
@@ -40,13 +40,13 @@
     <!-- left side -->
     <div class="col-sm-4 hidden-xs hw-sidebar">
         <ul class="list-group">
-            <li ng-repeat="website in model.websites" class="list-group-item">
+            <li ng-repeat="task in model.tasks" class="list-group-item">
                 <div class="row">
                     <div class="col-xs-10 col-sm-6">
-                        {{website.name}}
+                        {{task.name}}
                     </div>
                     <div class="col-xs-2 pull-right">
-                        <a href="#/user/{{model.userId}}/website/{{website._id}}">
+                        <a href="#/{{task._id}}">
                             <span class="glyphicon glyphicon-cog pull-right"></span>
                         </a>
                     </div>
@@ -61,13 +61,13 @@
             {{model.error}}
         </div>
 
-        <label for="web-edit-name">Website Name</label>
-        <input ng-model="model.website.name" class="form-control" id="web-edit-name" placeholder="Name">
+        <label for="web-edit-name">Task Name</label>
+        <input ng-model="model.task.name" class="form-control" id="web-edit-name" placeholder="Name">
 
-        <label for="web-edit-description">Website Description</label>
-        <textarea ng-model="model.website.description" class="form-control" rows="3" id="web-edit-description" placeholder="Description"></textarea>
+        <label for="web-edit-description">Task Description</label>
+        <textarea ng-model="model.task.description" class="form-control" rows="3" id="web-edit-description" placeholder="Description"></textarea>
 
-        <a ng-click="model.deleteWebsite()" class="btn btn-danger hw-button btn-block">Delete</a>
+        <a ng-click="model.deleteTask()" class="btn btn-danger hw-button btn-block">Delete</a>
     </div>
 </div>
 
@@ -75,7 +75,7 @@
     <div class="container-fluid">
         <div class="row navbar-right navbar-text">
             <div class="col-xs-12 text-right">
-                <a href="#/user/{{model.userId}}"><span class="glyphicon glyphicon-user"></span></a>
+                <a href="#/"><span class="glyphicon glyphicon-th-list"></span></a>
             </div>
         </div>
     </div>
