@@ -9,6 +9,10 @@ module.exports = function (app) {
         "createTask": createTask,
         "findTaskById": findTaskById,
         "findAllTasks": findAllTasks,
+        "findDueTomorrow": findDueTomorrow,
+        "findDueToday": findDueToday,
+        "findOverdue": findOverdue,
+        "findCompleted": findCompleted,
         "updateTask": updateTask,
         "deleteTask": deleteTask
     };
@@ -17,7 +21,6 @@ module.exports = function (app) {
 
     // Creates a new task instance
     function createTask(task) {
-        y = 0;
         return TaskModel.create(task);
     }
 
@@ -27,10 +30,28 @@ module.exports = function (app) {
     }
 
     function findAllTasks() {
-        x = 0;
-        var found = TaskModel.find();
-        x = 1;
-        return found;
+        return TaskModel.find();
+    }
+
+    function findDueTomorrow() {
+        var allTasks = TaskModel.find();
+        var today = new Date();
+
+    }
+
+    function findDueToday() {
+        // TODO
+    }
+
+    function findOverdue() {
+        // TODO
+    }
+
+
+    function findCompleted() {
+        var allTasks = TaskModel.find();
+        var x = 0;
+        return TaskModel.find({completed: true});
     }
 
     // Updates task instance whose _id is equal to parameter userId
@@ -41,7 +62,7 @@ module.exports = function (app) {
             name: task.name,
             description: task.description,
             dueDate: task.dueDate,
-            complated: task.completed,
+            completed: task.completed
         });
     }
 

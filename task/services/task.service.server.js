@@ -1,5 +1,6 @@
 module.exports = function (app, model) {
     app.post("/api/task", createTask);
+    app.get("/api/task/completed", findCompletedTasks);
     app.get("/api/task/:taskId", findTaskById);
     app.get("/api/task", findAllTasks);
     app.put("/api/task/:taskId", updateTask);
@@ -23,7 +24,7 @@ module.exports = function (app, model) {
 
     function findTaskById(req, res) {
         var taskId = req.params.taskId;
-        console.log("findTaskById, taskId: ", + taskId);
+        console.log("findTaskById, taskId: ", +taskId);
 
         model.TaskModel
             .findTaskById(taskId)
@@ -48,6 +49,17 @@ module.exports = function (app, model) {
             });
     }
 
+    function findCompletedTasks(req, res) {
+        model.TaskModel
+            .findCompleted()
+            .then(
+                function (response) {
+                    res.send(response);
+                })
+            .catch(function (err) {
+                res.status(500).send(err);
+            });
+    }
 
     function updateTask(req, res) {
         var taskId = req.params.taskId;

@@ -17,7 +17,6 @@
             var promise = TaskService.findAllTasks();
             promise.success(function (tasks) {
                 vm.tasks = tasks;
-                console.log(vm.tasks);
             });
         }
 
