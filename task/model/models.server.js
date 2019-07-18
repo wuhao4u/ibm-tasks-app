@@ -1,5 +1,6 @@
 module.exports = function (app) {
     // require("./task/task.schema.server");
+    var mongoose = require("mongoose");
     var taskModel = require("./task/task.model.server.js")();
 
     var connectionString = 'mongodb://127.0.0.1:27017/task';
@@ -14,8 +15,8 @@ module.exports = function (app) {
             process.env.MLAB_APP_NAME;
     }
 
-    var mongoose = require("mongoose");
-    mongoose.createConnection(connectionString);
+    // mongoose.createConnection(connectionString);
+    mongoose.connect(connectionString);
 
     // var tasks = db.collection("task");
     // TODO: change to insert sample tasks
@@ -32,9 +33,10 @@ module.exports = function (app) {
         ];
     }
 
+    // insertSampleTasks();
 
     var model = {
-        "TaskModel": taskModel,
+        "TaskModel": taskModel
     };
     return model;
-};
+}

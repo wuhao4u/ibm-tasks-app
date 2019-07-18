@@ -67,6 +67,17 @@
         <label for="web-edit-description">Task Description</label>
         <textarea ng-model="model.task.description" class="form-control" rows="3" id="web-edit-description" placeholder="Description"></textarea>
 
+        <label for="dueDate">Due Date</label>
+        <input type="date"
+               ng-model="model.task.dueDate"
+               class="form-control"
+               id="dueDate">
+
+        <label for="completed">Completed</label>
+        <input type="checkbox"
+               ng-model="model.task.completed"
+               id="completed">
+
         <a ng-click="model.deleteTask()" class="btn btn-danger hw-button btn-block">Delete</a>
     </div>
 </div>

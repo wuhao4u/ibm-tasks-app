@@ -17,6 +17,7 @@ module.exports = function (app) {
 
     // Creates a new task instance
     function createTask(task) {
+        y = 0;
         return TaskModel.create(task);
     }
 
@@ -26,7 +27,10 @@ module.exports = function (app) {
     }
 
     function findAllTasks() {
-        return TaskModel.find();
+        x = 0;
+        var found = TaskModel.find();
+        x = 1;
+        return found;
     }
 
     // Updates task instance whose _id is equal to parameter userId

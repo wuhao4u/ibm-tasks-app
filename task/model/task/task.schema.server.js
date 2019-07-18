@@ -5,7 +5,7 @@ module.exports = function (app) {
         name: {type: String, required: true},
         description: String,
         dueDate: {type: Date, default: Date.now() + 1000},
-        completed: {type: Boolean, default: false}
+        completed: Boolean
     }, {collection: "task"});
 
     return TaskSchema;

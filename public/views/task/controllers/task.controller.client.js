@@ -17,6 +17,7 @@
             var promise = TaskService.findAllTasks();
             promise.success(function (tasks) {
                 vm.tasks = tasks;
+                console.log(vm.tasks);
             });
         }
 
@@ -41,9 +42,31 @@
         init();
 
         function createTask(task) {
-            if (task.completed === undefined) {
+            if (!task) {
+                vm.error = "Missing Reqired Fields (Name, Due Date)";
+                return;
+            }
+            else if (!task.name | !task.dueDate) {
+                vm.error = "Missing Reqired Fields (Name, Due Date)";
+                console.log("task.name: " + task.name);
+                console.log("task.dueDate: " + task.dueDate);
+                return;
+            }
+
+            if (!task.completed) {
+                console.log("don't have task.completed WTF!!!!!!");
                 task.completed = false;
             }
+            else {
+                console.log("have task.completed WTF!!!!!!");
+                console.log(task.completed);
+            }
+
+            console.log("task.name: " + task.name);
+            console.log("task.desc: " + task.description);
+            console.log("task.dueDate: " + task.dueDate);
+            console.log("task.completed: " + task.completed);
+
             var promise = TaskService.createTask(task);
             promise.success(function (newTask) {
                 $location.url("/task");
@@ -75,6 +98,7 @@
             var taskPromise = TaskService.findTaskById(vm.taskId);
             taskPromise.success(function (task) {
                 vm.task = task;
+                vm.task.dueDate = new Date(vm.task.dueDate);
             });
         }
 
@@ -92,6 +116,13 @@
         }
 
         function updateTask() {
+            console.log("updating task:");
+
+            console.log("task.name: " + vm.task.name);
+            console.log("task.desc: " + vm.task.description);
+            console.log("task.dueDate: " + vm.task.dueDate);
+            console.log("task.completed: " + vm.task.completed);
+
             var updatePromise = TaskService.updateTask(vm.taskId, vm.task);
             updatePromise.success(function () {
                 $location.url("/task");
