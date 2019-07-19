@@ -9,8 +9,7 @@ module.exports = function (app) {
         "createTask": createTask,
         "findTaskById": findTaskById,
         "findAllTasks": findAllTasks,
-        "findDueTomorrow": findDueTomorrow,
-        "findDueToday": findDueToday,
+        "findDueTodayTomorrow": findDueTodayTomorrow,
         "findOverdue": findOverdue,
         "findCompleted": findCompleted,
         "updateTask": updateTask,
@@ -33,24 +32,22 @@ module.exports = function (app) {
         return TaskModel.find();
     }
 
-    function findDueTomorrow() {
-        var allTasks = TaskModel.find();
+    function findDueTodayTomorrow() {
         var today = new Date();
+        var dayAfterTmr = new Date();
+        dayAfterTmr.setDate(today.getDate() + 2);
 
-    }
-
-    function findDueToday() {
-        // TODO
+        return TaskModel.find({completed: false, dueDate: {$gte: today, $lt: dayAfterTmr}})
     }
 
     function findOverdue() {
-        // TODO
+        var todayDate = Date.now();
+
+        return TaskModel.find({completed: false, dueDate: {$lt: todayDate}});
     }
 
 
     function findCompleted() {
-        var allTasks = TaskModel.find();
-        var x = 0;
         return TaskModel.find({completed: true});
     }
 
