@@ -1,5 +1,8 @@
 module.exports = function (app) {
     var mongoose = require("mongoose");
+    var moment = require('moment');
+    moment().format();
+
     mongoose.Promise = require('q').Promise;
 
     var TaskSchema = require("./task.schema.server")();
@@ -9,7 +12,8 @@ module.exports = function (app) {
         "createTask": createTask,
         "findTaskById": findTaskById,
         "findAllTasks": findAllTasks,
-        "findDueTodayTomorrow": findDueTodayTomorrow,
+        "findDueToday": findDueToday,
+        "findDueTomorrow": findDueTomorrow,
         "findOverdue": findOverdue,
         "findCompleted": findCompleted,
         "updateTask": updateTask,
@@ -32,18 +36,49 @@ module.exports = function (app) {
         return TaskModel.find();
     }
 
-    function findDueTodayTomorrow() {
-        var today = new Date();
-        var dayAfterTmr = new Date();
-        dayAfterTmr.setDate(today.getDate() + 2);
+    function findDueToday() {
+        var today0 = moment();
+        var today1 = moment();
+        today0.set('hour', 0);
+        today0.set('minute', 0);
+        today0.set('second', 0);
+        today0.set('millisecond', 0);
 
-        return TaskModel.find({completed: false, dueDate: {$gte: today, $lt: dayAfterTmr}})
+        today1.set('hour', 23);
+        today1.set('minute', 59);
+        today1.set('second', 59);
+        today1.set('millisecond', 59);
+
+        return TaskModel.find({completed: false, dueDate: {$gte: today0, $lte: today1}})
+    }
+
+    function findDueTomorrow() {
+        var tmr0 = moment();
+        var tmr1 = moment();
+        tmr0.add(1, 'days');
+        tmr1.add(1, 'days');
+
+        tmr0.set('hour', 0);
+        tmr0.set('minute', 0);
+        tmr0.set('second', 0);
+        tmr0.set('millisecond', 0);
+
+        tmr1.set('hour', 23);
+        tmr1.set('minute', 59);
+        tmr1.set('second', 59);
+        tmr1.set('millisecond', 59);
+
+        return TaskModel.find({completed: false, dueDate: {$gte: tmr0, $lte: tmr1}})
     }
 
     function findOverdue() {
-        var todayDate = Date.now();
+        var today0 = moment();
+        today0.set('hour', 0);
+        today0.set('minute', 0);
+        today0.set('second', 0);
+        today0.set('millisecond', 0);
 
-        return TaskModel.find({completed: false, dueDate: {$lt: todayDate}});
+        return TaskModel.find({completed: false, dueDate: {$lt: today0}});
     }
 
 

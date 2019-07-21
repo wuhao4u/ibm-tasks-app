@@ -53,11 +53,9 @@
             }
 
             if (!task.completed) {
-                console.log("don't have task.completed WTF!!!!!!");
                 task.completed = false;
             }
             else {
-                console.log("have task.completed WTF!!!!!!");
                 console.log(task.completed);
             }
 

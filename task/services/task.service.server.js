@@ -1,7 +1,8 @@
 module.exports = function (app, model) {
     app.post("/api/task", createTask);
     app.get("/api/task/completed", findCompletedTasks);
-    app.get("/api/task/dueTodayTomorrow", findDueTodayTomorrow);
+    app.get("/api/task/dueToday", findDueToday);
+    app.get("/api/task/dueTomorrow", findDueTomorrow);
     app.get("/api/task/overdue", findOverdueTasks);
     app.get("/api/task/:taskId", findTaskById);
     app.get("/api/task", findAllTasks);
@@ -51,9 +52,21 @@ module.exports = function (app, model) {
             });
     }
 
-    function findDueTodayTomorrow(req, res) {
+    function findDueToday(req, res) {
         model.TaskModel
-            .findDueTodayTomorrow()
+            .findDueToday()
+            .then(
+                function (response) {
+                    res.send(response);
+                })
+            .catch(function (err) {
+                res.status(500).send(err);
+            });
+    }
+
+    function findDueTomorrow(req, res) {
+        model.TaskModel
+            .findDueTomorrow()
             .then(
                 function (response) {
                     res.send(response);

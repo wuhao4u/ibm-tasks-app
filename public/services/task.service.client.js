@@ -10,6 +10,8 @@
         var api = {
             "createTask": createTask,
             "findTaskById": findTaskById,
+            "findTaskDueToday": findTaskDueToday,
+            "findTaskDueTomorrow": findTaskDueTomorrow,
             "findAllTasks": findAllTasks,
             "updateTask": updateTask,
             "deleteTask": deleteTask
@@ -26,6 +28,14 @@
 
         function findAllTasks() {
             return $http.get("/api/task");
+        }
+
+        function findTaskDueToday() {
+            return $http.get("/api/task/findDueToday");
+        }
+
+        function findTaskDueTomorrow() {
+            return $http.get("/api/task/findDueTomorrow");
         }
 
         function updateTask(taskId, newTask) {
