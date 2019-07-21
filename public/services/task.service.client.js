@@ -12,6 +12,9 @@
             "findTaskById": findTaskById,
             "findTaskDueToday": findTaskDueToday,
             "findTaskDueTomorrow": findTaskDueTomorrow,
+            "findDueTodayNTomorrow": findDueTodayNTomorrow,
+            "findTaskOverdue": findTaskOverdue,
+            "findTaskCompleted": findTaskCompleted,
             "findAllTasks": findAllTasks,
             "updateTask": updateTask,
             "deleteTask": deleteTask
@@ -31,11 +34,23 @@
         }
 
         function findTaskDueToday() {
-            return $http.get("/api/task/findDueToday");
+            return $http.get("/api/task/dueToday");
         }
 
         function findTaskDueTomorrow() {
-            return $http.get("/api/task/findDueTomorrow");
+            return $http.get("/api/task/dueTomorrow");
+        }
+
+        function findTaskOverdue() {
+            return $http.get("/api/task/overdue");
+        }
+
+        function findDueTodayNTomorrow() {
+            return $http.get("/api/task/dueTodayNTomorrow");
+        }
+
+        function findTaskCompleted() {
+            return $http.get("/api/task/completed");
         }
 
         function updateTask(taskId, newTask) {

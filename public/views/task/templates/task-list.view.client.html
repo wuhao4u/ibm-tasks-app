@@ -20,6 +20,15 @@
 </nav>
 
 <div class="container-fluid">
+    <div id="FiltersContainer">
+        <button class="btn" ng-click="model.findAll()"> Show all</button>
+        <button class="btn" ng-click="model.findDueToday()"> Due Today</button>
+        <button class="btn" ng-click="model.findDueTomorrow()"> Due Tomorrow</button>
+        <button class="btn" ng-click="model.findDueTodayNTomorrow()"> Due Soon</button>
+        <button class="btn" ng-click="model.findOverdue()"> Overdue</button>
+        <button class="btn" ng-click="model.findCompleted()"> Completed</button>
+    </div>
+
     <ul class="list-group">
         <li ng-repeat="task in model.tasks" class="list-group-item">
             <div class="row">

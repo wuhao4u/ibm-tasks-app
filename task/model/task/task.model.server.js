@@ -14,6 +14,7 @@ module.exports = function (app) {
         "findAllTasks": findAllTasks,
         "findDueToday": findDueToday,
         "findDueTomorrow": findDueTomorrow,
+        "findDueTodayNTomorrow": findDueTodayNTomorrow,
         "findOverdue": findOverdue,
         "findCompleted": findCompleted,
         "updateTask": updateTask,
@@ -49,7 +50,7 @@ module.exports = function (app) {
         today1.set('second', 59);
         today1.set('millisecond', 59);
 
-        return TaskModel.find({completed: false, dueDate: {$gte: today0, $lte: today1}})
+        return TaskModel.find({dueDate: {$gte: today0, $lte: today1}})
     }
 
     function findDueTomorrow() {
@@ -68,7 +69,27 @@ module.exports = function (app) {
         tmr1.set('second', 59);
         tmr1.set('millisecond', 59);
 
-        return TaskModel.find({completed: false, dueDate: {$gte: tmr0, $lte: tmr1}})
+        return TaskModel.find({dueDate: {$gte: tmr0, $lte: tmr1}})
+    }
+
+    function findDueTodayNTomorrow() {
+        var today0 = moment();
+        var tmr1 = moment();
+        tmr1.add(1, 'days');
+
+        today0.set('hour', 0);
+        today0.set('minute', 0);
+        today0.set('second', 0);
+        today0.set('millisecond', 0);
+
+        tmr1.set('hour', 23);
+        tmr1.set('minute', 59);
+        tmr1.set('second', 59);
+        tmr1.set('millisecond', 59);
+
+        var x = 0;
+
+        return TaskModel.find({dueDate: {$gte: today0, $lte: tmr1}})
     }
 
     function findOverdue() {
