@@ -1,4 +1,4 @@
 (function () {
     angular
-        .module("TaskApp", ["ngRoute"]);
+        .module("TaskApp", ["ngRoute", "taskAppDirectives"]);
 })();

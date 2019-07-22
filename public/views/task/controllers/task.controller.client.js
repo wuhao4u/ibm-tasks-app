@@ -29,11 +29,9 @@
             });
         }
 
-
         init();
 
         function findDueToday() {
-            console.log("findDueToday");
             var promise = TaskService.findTaskDueToday();
             promise.success(function (tasks) {
                 vm.tasks = tasks;
@@ -41,7 +39,6 @@
         }
 
         function findDueTomorrow() {
-            console.log("findDueTomorrow");
             var promise = TaskService.findTaskDueTomorrow();
             promise.success(function (tasks) {
                 vm.tasks = tasks;
@@ -49,7 +46,6 @@
         }
 
         function findDueTodayNTomorrow() {
-            console.log("findDueTodayNTomorrow");
             var promise = TaskService.findDueTodayNTomorrow();
             promise.success(function (tasks) {
                 vm.tasks = tasks;
@@ -57,7 +53,6 @@
         }
 
         function findOverdue() {
-            console.log("findOverdue");
             var promise = TaskService.findTaskOverdue();
             promise.success(function (tasks) {
                 vm.tasks = tasks;
@@ -66,7 +61,6 @@
 
 
         function findCompleted() {
-            console.log("findCompleted");
             var promise = TaskService.findTaskCompleted();
             promise.success(function (tasks) {
                 vm.tasks = tasks;
