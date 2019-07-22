@@ -1,6 +1,7 @@
-# Project Title
+# Task Manager
 
-One Paragraph of project description goes here
+A simple task management tool. The tool will allow an end user to create, manage and delete tasks using a web interface.
+
 
 ## Getting Started
 
@@ -8,29 +9,43 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+The project uses the MEAN stack.
+MongoDB, Express.js, Angular.js, Node.js
 
+
+mongodb version 4.0.3  
+express.js version 4.13.4  
+angular.js version 1.5.7  
+node.js version 6.9.4
+  
+Run mongodb locally.
 ```
-Give examples
+sudo /usr/local/opt/mongodb@4.0/bin/mongod
+
 ```
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+Find the pre-packaged zip files in build/wu-hao-ibm-task-x.x.x.tgz
 
 ```
-Give the example
+npm install wu-hao-ibm-task-1.0.0.tgz
 ```
 
-And repeat
+Go to the unzipped "node_modules" directory.
+```
+cd node_modules/ibm-tasks-app
+```
+Run the back-end server locally.
+```
+node server.js
+```
+
+To stop the server, press "Ctrl+C"
 
 ```
-until finished
+^C
 ```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
@@ -56,33 +71,12 @@ Give an example
 
 Add additional notes about how to deploy this on a live system
 
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Hao Wu** - hao.wu.work@gmail.com
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
