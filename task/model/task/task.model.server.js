@@ -87,8 +87,6 @@ module.exports = function (app) {
         tmr1.set('second', 59);
         tmr1.set('millisecond', 59);
 
-        var x = 0;
-
         return TaskModel.find({dueDate: {$gte: today0, $lte: tmr1}})
     }
 
@@ -99,7 +97,7 @@ module.exports = function (app) {
         today0.set('second', 0);
         today0.set('millisecond', 0);
 
-        return TaskModel.find({completed: false, dueDate: {$lt: today0}});
+        return TaskModel.find({dueDate: {$lt: today0}});
     }
 
 

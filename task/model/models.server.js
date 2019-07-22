@@ -26,11 +26,9 @@ module.exports = function (app) {
             {
                 name: "submit job applicaiton",
                 description: "",
-                dueDate: new Date(2019, 7, 15, 09, 10, 10, 10),
-                complated: false
-            },
-            {name: "vet", description: "take Boo to the vet", dueDate: "October 13, 2014 11:13:00", complated: false},
-        ];
+                dueDate: new Date(),
+                completed: false
+            }];
     }
 
     // insertSampleTasks();
@@ -39,4 +37,4 @@ module.exports = function (app) {
         "TaskModel": taskModel
     };
     return model;
-}
+};

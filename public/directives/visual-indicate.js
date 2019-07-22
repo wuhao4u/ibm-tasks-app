@@ -13,8 +13,6 @@
             // console.log($element);
             // console.log($attrs);
 
-            // if ($scope.task.dueDate)
-            // TODO: determine time
             var today0 = new Date();
             today0.setHours(0, 0, 0, 0);
 
@@ -24,13 +22,14 @@
 
             var dueDate = new Date($scope.task.dueDate);
 
-            if (dueDate < today0) {
-                $element.addClass("task-past-due");
+            if (!$scope.task.completed) {
+                if (dueDate < today0) {
+                    $element.addClass("task-past-due");
+                } else if (dueDate >= today0 && dueDate < dayAfterTmr0) {
+                    $element.addClass("task-due-soon");
+                }
+
             }
-            else if (dueDate >= today0 && dueDate < dayAfterTmr0) {
-                $element.addClass("task-due-soon");
-            }
-            // $element.addClass("task-due-soon");
         }
 
         return {
