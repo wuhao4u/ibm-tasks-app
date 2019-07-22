@@ -1,5 +1,17 @@
 /*Custom css class need to start with initials*/
 
+.task-past-due {
+    background-color: tomato;
+    width: 100%;
+    display: block;
+}
+
+.task-due-soon {
+    background-color: gold;
+    width: 100%;
+    display: block;
+}
+
 .hw-sidebar {
     /*margin-bottom: 5px;*/
     border-right: grey;
@@ -19,7 +31,6 @@
     margin-left: 5px;
     margin-right: 5px;
 }
-
 
 a:hover {
     text-decoration: none;
@@ -53,9 +64,9 @@ input.form-control {
 }
 
 /*#h3Green {*/
-    /*background-color: greenyellow;*/
+/*background-color: greenyellow;*/
 /*}*/
 
 /*.navbar-default .navbar-brand {*/
-    /*color: white;*/
+/*color: white;*/
 /*}*/
