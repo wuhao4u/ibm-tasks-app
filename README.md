@@ -34,7 +34,8 @@ npm install wu-hao-ibm-task-1.0.0.tgz
 
 Go to the unzipped "node_modules" directory.
 ```
-cd node_modules/ibm-tasks-app
+cd node_modules/wu-hao-ibm-task
+npm install
 ```
 Run the back-end server locally.
 ```
