@@ -8,11 +8,6 @@
 
     function rowIndicateDir() {
         function linkFunction($scope, $element, $attrs) {
-            console.log("linkFunction");
-            // console.log($scope);
-            // console.log($element);
-            // console.log($attrs);
-
             var today0 = new Date();
             today0.setHours(0, 0, 0, 0);
 
@@ -39,20 +34,7 @@
             templateUrl: "views/task/templates/task-row.html",
             link: linkFunction,
             controller: function ($scope) {
-                // console.log("row-indicate controller");
-                // console.log($scope.task);
-                // console.log($scope.task.dueDate);
-
             }
         }
     }
-
-    // function rowIndicateDir() {
-    //     function linkFunction(scope, element) {
-    //         element.draggable();
-    //     }
-    //     return {
-    //         link: linkFunction
-    //     }
-    // }
 })();

@@ -13,13 +13,14 @@
     "q": "^1.4.1"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^7.1.1",
+    "chai-http": "^2.0.1",
     "jest": "^23.6.0",
+    "mocha": "^2.5.3",
     "puppeteer": "^1.8.0",
     "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.2",
-    "chai": "^3.5.0",
-    "chai-http": "^2.0.1",
-    "mocha": "^2.4.5"
+    "webpack-cli": "^3.1.2"
   },
   "scripts": {
     "test": "mocha --timeout 10000",

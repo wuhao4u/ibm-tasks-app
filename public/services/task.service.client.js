@@ -54,10 +54,6 @@
         }
 
         function updateTask(taskId, newTask) {
-            console.log("task service client");
-            console.log(taskId);
-            console.log(newTask);
-
             return $http.put("/api/task/" + taskId, newTask);
         }
 
